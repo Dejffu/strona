@@ -1,1 +1,74 @@
+<html>
+  <body>
+    <textarea>
+      <html>
+<head>
+<title>
+Pole trapezu
+</title>
+<script language="JavaScript">
 
+function Pole_domalewski(a_dom,b_dom,h_dom)
+{
+a_dom=parseFloat(Math.abs(a_dom));
+b_dom=parseFloat(Math.abs(b_dom));
+h_dom=parseFloat(Math.abs(h_dom));
+
+wynik = ((a_dom + b_dom) * h_dom) / 2;
+document.getElementsByName('pole')[0].value=wynik.toFixed(2); /* na dokument */
+wyprowadz_pole_dom.innerHTML="Pole="+wynik.toFixed(2)+" cm2"+"<br>"; /* do tabeli */
+}
+
+
+function obwod_domalewski(a_dom,b_dom,h_dom)
+{
+a_dom=parseFloat(Math.abs(a_dom));
+b_dom=parseFloat(Math.abs(b_dom));
+h_dom=parseFloat(Math.abs(h_dom));
+
+if (a_dom <= b_dom)
+	{
+		var x = (b_dom - a_dom) / 2;
+		var c = Math.sqrt(x * x + h_dom * h_dom);
+		wynik = a_dom + b_dom + (c * 2);
+	}
+	if (b_dom <= a_dom)
+	{
+		var x = (a_dom - b_dom) / 2;
+		var c = Math.sqrt(x * x + h_dom * h_dom);
+		wynik = a_dom + b_dom + (c * 2);
+	}
+
+document.getElementsByName('obw')[0].value=wynik.toFixed(2); /* na dokument */
+wyprowadz_obwod_dom.innerHTML="Obwod="+wynik.toFixed(2)+" cm"+"<br>"; /* do tabeli */
+}
+
+</script>
+</head>
+<body>
+<form name="formularz" action="..." onsubmit="Pole_domalewski(this.a_dana_dom.value,this.b_dana_dom.value,this.h_dana_dom.value); obwod_domalewski(this.a_dana_dom.value,this.b_dana_dom.value,this.h_dana_dom.value);return false">
+Podaj a=
+<input size="6" name="a_dana_dom">
+Podaj b=
+<input size="6" name="b_dana_dom">
+Podaj h=
+<input size="6" name="h_dana_dom">
+<br>
+<br>
+<input TYPE="submit" Value="oblicz" >
+<br>
+<br>
+Pole=
+<input size="6" name="pole">
+Obwod=
+<input size="6" name="obw">
+</form>
+<table>
+<tr id="wyprowadz_pole_dom"></tr>
+<tr id="wyprowadz_obwod_dom"></tr>
+</table>
+</body>
+</html>
+    </textarea>
+  </body>
+</html>
