@@ -1,7 +1,58 @@
 <html>
 <body>
 <textarea>
+<html>
+<head>
+<title> Zadanie tekstowe </title>
+<script language="JavaScript">
 
+function wysokosc_domalewski(a_dom,b_dom)
+{
+a_dom=parseFloat(a_dom);
+b_dom=parseFloat(b_dom);
+
+wynik = Math.sqrt(b_dom * b_dom - a_dom * a_dom );
+document.getElementsByName('wysokosc')[0].value=wynik.toFixed(2); /* na dokument */
+wyprowadz_wys_dom.innerHTML="Wysokosc="+wynik.toFixed(2)+" m"+"<br>"; /* do tabeli */
+}
+
+
+function alfa_domalewski(a_dom,b_dom)
+{
+a_dom=parseFloat(a_dom);
+b_dom=parseFloat(b_dom);
+
+rady = Math.asin(a_dom / b_dom);
+wynik = rady * (180/Math.PI);
+
+document.getElementsByName('alfa')[0].value=wynik.toFixed(2); /* na dokument */
+wyprowadz_alfe_dom.innerHTML="Stopnie="+wynik.toFixed(2)+" °"+"<br>"; /* do tabeli */
+}
+
+</script>
+</head>
+<body>
+<form name="formularz" action="..." onsubmit="wysokosc_domalewski(this.a_dana_dom.value,this.b_dana_dom.value); alfa_domalewski(this.a_dana_dom.value,this.b_dana_dom.value);return false">
+Podaj odleglosc=
+<input size="6" name="a_dana_dom">
+Podaj droge=
+<input size="6" name="b_dana_dom">
+<br>
+<br>
+<input TYPE="submit" Value="oblicz" >
+<br>
+<br>
+Wysokosc =
+<input size="6" name="wysokosc">
+Kat startu=
+<input size="6" name="alfa">
+</form>
+<table>
+<tr id="wyprowadz_wys_dom"></tr> 
+<tr id="wyprowadz_alfe_dom"></tr> 
+</table>
+</body>
+</html>
 </textarea>
 </body>
 </html>
